@@ -1,0 +1,18 @@
+.link {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-color);
+
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.link.active {
+  font-weight: 600;
+  color: var(--white);
+  text-decoration: underline;
+}
