@@ -4,9 +4,11 @@ import { Banner } from 'components/Banner'
 import { Title } from 'components/Title'
 import { Card } from 'components/Card'
 
-import videos from 'json/db.json'
+import { useFavoritosContext } from 'hooks/useFavoritosContext'
 
 export function Favoritos() {
+  const { favoritos } = useFavoritosContext()
+
   return (
     <div>
       <Banner image="favoritos" />
@@ -15,12 +17,12 @@ export function Favoritos() {
           <h1>Meus Favoritos</h1>
         </Title>
         <section className={styles.container}>
-          {videos.map(video => (
+          {favoritos.map(fav => (
             <Card
-              key={video.id}
-              id={video.id}
-              cover={video.capa}
-              title={video.titulo}
+              key={fav.id}
+              id={fav.id}
+              cover={fav.capa}
+              title={fav.titulo}
             />
           ))}
         </section>

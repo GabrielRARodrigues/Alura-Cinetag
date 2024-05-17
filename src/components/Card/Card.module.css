@@ -21,13 +21,22 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: start;
-  gap: 8px;
 }
 
 .content h2 {
   font-size: 18px;
   font-weight: bold;
   color: var(--black);
+}
+
+.content button {
+  padding: 0;
+  background: none;
+  border: none;
+
+  display: flex;
+
+  cursor: pointer;
 }
 
 .favorite {

@@ -7,8 +7,6 @@ export function Banner({ image }) {
       style={{
         backgroundImage: `url('/images/banner-${image}.png')`
       }}
-    >
-      Banner
-    </div>
+    ></div>
   )
 }

@@ -1,3 +1,8 @@
+.container {
+  width: 100%;
+  min-height: 100%;
+}
+
 .container section {
   margin: 2em 20em;
   text-align: center;
