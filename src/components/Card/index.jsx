@@ -3,6 +3,7 @@ import styles from './Card.module.css'
 
 import favoriteIcon from './assets/favorite.png'
 import unfavoriteIcon from './assets/unfavorite.png'
+import { Link } from 'react-router-dom'
 
 export function Card({ id, title, cover }) {
   const { favoritos, toggleFavorite } = useFavoritosContext()
@@ -12,9 +13,13 @@ export function Card({ id, title, cover }) {
 
   return (
     <figure className={styles.container}>
-      <img src={cover} alt={title} className={styles.cover} />
+      <Link className={styles.link} to={`/${id}`}>
+        <img src={cover} alt={title} className={styles.cover} />
+      </Link>
       <figcaption className={styles.content}>
-        <h2>{title}</h2>
+        <Link className={styles.link} to={`/${id}`}>
+          <h2>{title}</h2>
+        </Link>
 
         <button
           onClick={() =>

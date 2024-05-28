@@ -1,27 +1,22 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
+import { BasePage } from 'pages/BasePage'
 import { Home } from 'pages/Home'
 import { Favoritos } from 'pages/Favoritos'
-import { Header } from 'components/Header'
-import { Footer } from 'components/Footer'
-import { Container } from 'components/Container'
-import { FavoritosProvider } from 'contexts/Favoritos'
+import { Player } from 'pages/Player'
+import { NotFound } from 'pages/NotFound'
 
 export function AppRoutes() {
   return (
     <BrowserRouter>
-      <Header />
-
-      <Container>
-        <FavoritosProvider>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/favoritos" element={<Favoritos />} />
-          </Routes>
-        </FavoritosProvider>
-      </Container>
-
-      <Footer />
+      <Routes>
+        <Route path="/" element={<BasePage />}>
+          <Route index element={<Home />} />
+          <Route path="favoritos" element={<Favoritos />} />
+          <Route path=":id" element={<Player />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   )
 }

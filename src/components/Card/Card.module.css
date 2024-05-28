@@ -7,6 +7,17 @@
   flex-direction: column;
 }
 
+.link {
+  display: flex;
+
+  text-decoration: none;
+  text-align: left;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
 .cover {
   width: 100%;
 }

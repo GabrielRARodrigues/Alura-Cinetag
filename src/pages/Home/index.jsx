@@ -8,23 +8,22 @@ import videos from 'json/db.json'
 
 export function Home() {
   return (
-    <div>
+    <>
       <Banner image="home" />
-      <main>
-        <Title>
-          <h1>Um lugar para guardar seus vídeos e filmes!</h1>
-        </Title>
-        <section className={styles.container}>
-          {videos.map(video => (
-            <Card
-              key={video.id}
-              id={video.id}
-              cover={video.capa}
-              title={video.titulo}
-            />
-          ))}
-        </section>
-      </main>
-    </div>
+
+      <Title>
+        <h1>Um lugar para guardar seus vídeos e filmes!</h1>
+      </Title>
+      <section className={styles.container}>
+        {videos.map(video => (
+          <Card
+            key={video.id}
+            id={video.id}
+            cover={video.capa}
+            title={video.titulo}
+          />
+        ))}
+      </section>
+    </>
   )
 }
