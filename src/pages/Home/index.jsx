@@ -1,12 +1,24 @@
+import { useEffect, useState } from 'react'
+
 import styles from './Home.module.css'
 
 import { Banner } from 'components/Banner'
 import { Card } from 'components/Card'
 import { Title } from 'components/Title'
 
-import videos from 'json/db.json'
-
 export function Home() {
+  const [videos, setVideos] = useState([])
+
+  useEffect(() => {
+    fetch(
+      'https://my-json-server.typicode.com/GabrielRARodrigues/Alura-Cinetag-API/videos'
+    )
+      .then(response => response.json())
+      .then(data => {
+        setVideos(data)
+      })
+  }, [])
+
   return (
     <>
       <Banner image="home" />

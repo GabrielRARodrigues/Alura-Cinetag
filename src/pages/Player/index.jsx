@@ -6,11 +6,21 @@ import { Title } from 'components/Title'
 import { Banner } from 'components/Banner'
 import { NotFound } from 'pages/NotFound'
 
-import videos from 'json/db.json'
+import { useEffect, useState } from 'react'
 
 export function Player() {
+  const [video, setVideo] = useState()
   const params = useParams()
-  const video = videos.find(video => video.id === Number(params.id))
+
+  useEffect(() => {
+    fetch(
+      `https://my-json-server.typicode.com/GabrielRARodrigues/Alura-Cinetag-API/videos?id=${params.id}`
+    )
+      .then(response => response.json())
+      .then(data => {
+        setVideo(...data)
+      })
+  }, [params])
 
   if (!video) {
     return <NotFound />
@@ -27,10 +37,10 @@ export function Player() {
           width="100%"
           src={video.link}
           title={video.titulo}
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
         ></iframe>
       </section>
     </>
